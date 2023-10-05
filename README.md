@@ -17,7 +17,7 @@ Building an Index
 client.build_index(index_name="my_index")
 ```
 
-Adding Vectors
+Adding vectors
 ```python
 import numpy as np
 
@@ -26,13 +26,13 @@ ids = [1, 2]
 client.add_vectors(index_name="my_index", vectors=vectors, ids=ids)
 ```
 
-Querying Vectors
+Querying vectors
 ```python
 vector = np.array([1,2,3])
 top_k_results = client.query_vectors(index_name="my_index", vector=vector, top_k=5)
 ```
 
-Retrieving Vectors
+Retrieving vectors
 ```python
 result = client.retrieve_vectors(index_name="my_index")
 for _id, v in zip(result.ids, result.vectors):
