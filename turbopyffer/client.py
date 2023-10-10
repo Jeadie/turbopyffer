@@ -13,7 +13,7 @@ DEFAULT_BASE_URL = "https://api.turbopuffer.com"
 class TurboPufferClient:
     def __init__(self, token, url=DEFAULT_BASE_URL):
         self.http = HttpRequests(url, {
-            "Authorization": f"Bearer {self.token}",
+            "Authorization": f"Bearer {token}",
             "Content-Type": "application/json"
         })
 
