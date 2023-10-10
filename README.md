@@ -2,7 +2,7 @@
 
 ## Install
 ```shell
-pip install turbopuffer-sdk
+pip install git+https://github.com/Jeadie/turbopyffer.git
 ```
 
 ## Usage
