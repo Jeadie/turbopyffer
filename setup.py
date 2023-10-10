@@ -24,7 +24,7 @@ def setup_package():
         description="Python SDK for TurboPuffer.",
         long_description=parse_markdown("README.md"),
         long_description_content_type="text/markdown",
-        packages=["src"],
+        packages=find_packages(),
         install_requires=parse_requirements('requirements.txt'),
         python_requires=">=3.8",
         platforms=["Any"],
