@@ -7,7 +7,7 @@ pip install git+https://github.com/Jeadie/turbopyffer.git
 
 ## Usage
 ```python
-from turbopuffer import TurboPufferClient
+from turbopyffer import TurboPufferClient
 
 client = TurboPufferClient(token="YOUR_API_TOKEN")
 ```

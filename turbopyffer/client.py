@@ -44,7 +44,7 @@ class TurboPufferClient:
 
     def retrieve_vectors(self, index_name: str, cursor: Optional[str] = None) -> RetrieveVectorsResponse:
         result = self.http.send_request("GET", f"/{index_name}", param={"cursor": cursor} if cursor else None)
-        return RetrieveVectorsResponse(**result)
+        return RetrieveVectorsResponse.from_json(result)
 
     def retrieve_all_vectors(self, index_name: str) -> Generator[RetrieveVectorsResponse, None, None]:
         cursor = None
