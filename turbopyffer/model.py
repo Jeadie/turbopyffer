@@ -23,12 +23,12 @@ class AddVectorsPayload(BaseModel):
         arbitrary_types_allowed = True
 
 class QueryVectorsPayload(BaseModel):
-    vectors: np.ndarray
-    ids: List[int]
+    vector: np.ndarray
+    top_k: int
 
-    @field_serializer('vectors')
-    def serialize_dt(self, vectors: np.ndarray, _info):
-        return json.dumps(vectors.tolist())
+    @field_serializer('vector')
+    def serialize_dt(self, vector: np.ndarray, _info):
+        return json.dumps(vector.tolist())
 
     class Config:
         arbitrary_types_allowed = True

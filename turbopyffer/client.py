@@ -7,7 +7,7 @@ from .model import BuildIndexPayload, AddVectorsPayload, QueryVectorsResponse, Q
 from .http import HttpRequests
 
 
-DEFAULT_BASE_URL = "https://api.turbopuffer.com"
+DEFAULT_BASE_URL = "https://api.turbopuffer.com/v1/vectors"
 
 
 class TurboPufferClient:
@@ -34,7 +34,7 @@ class TurboPufferClient:
         self.http.send_request("DELETE", f"")
     
     def add_vectors(self, index_name: str, vectors: np.ndarray, ids: list[int]):
-        self.http.send_request("POST", index_name, body=AddVectorsPayload(vectors=vectors, ids=ids).json())
+        self.http.send_request("POST", f"/{index_name}", body=AddVectorsPayload(vectors=vectors, ids=ids).json())
 
     def query_vectors(self, index_name: str, vector: np.ndarray, top_k: int) -> List[QueryVectorsResponse]:
         result = self.http.send_request("POST", f"/{index_name}/query", body=QueryVectorsPayload(vector=vector, top_k=top_k).json())

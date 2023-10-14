@@ -23,11 +23,10 @@ class HttpRequests:
     ) -> Any:
         if not isinstance(body, (bytes, str)) and body is not None:
             body = json.dumps(body)
-
         response: Response = self._operation(method)(
             url=f"{self.base_url}{path}",
             data=body,
-            params=self.prepare_param(param.copy()) if param is not None else param,
+            params=param.copy(),
             verify=True,
         )
         response.raise_for_status()
