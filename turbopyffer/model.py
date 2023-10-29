@@ -16,8 +16,8 @@ class AddVectorsPayload(BaseModel):
     ids: List[int]
 
     @field_serializer('vectors')
-    def serialize_dt(self, vectors: np.ndarray, _info):
-        return json.dumps(vectors.tolist())
+    def serialize_vectors(self, vectors: np.ndarray, _info):
+        return vectors.tolist()
 
     class Config:
         arbitrary_types_allowed = True
@@ -27,7 +27,7 @@ class QueryVectorsPayload(BaseModel):
     top_k: int
 
     @field_serializer('vector')
-    def serialize_dt(self, vector: np.ndarray, _info):
+    def serialize_vectors(self, vector: np.ndarray, _info):
         return json.dumps(vector.tolist())
 
     class Config:
@@ -45,7 +45,7 @@ class RetrieveVectorsResponse(BaseModel):
     next_cursor: Optional[str]
 
     @field_serializer('vectors')
-    def serialize_dt(self, vectors: np.ndarray, _info):
+    def serialize_vectors(self, vectors: np.ndarray, _info):
         return json.dumps(vectors.tolist())
 
     class Config:
