@@ -28,7 +28,7 @@ class QueryVectorsPayload(BaseModel):
 
     @field_serializer('vector')
     def serialize_vectors(self, vector: np.ndarray, _info):
-        return json.dumps(vector.tolist())
+        return vector.tolist()
 
     class Config:
         arbitrary_types_allowed = True
@@ -46,7 +46,7 @@ class RetrieveVectorsResponse(BaseModel):
 
     @field_serializer('vectors')
     def serialize_vectors(self, vectors: np.ndarray, _info):
-        return json.dumps(vectors.tolist())
+        return vectors.tolist()
 
     class Config:
         arbitrary_types_allowed = True
